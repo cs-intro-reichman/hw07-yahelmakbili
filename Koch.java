@@ -21,8 +21,11 @@ public class Koch {
 		double bx = x1 + 2.0 * (x2 - x1) / 3.0;
 		double by = y1 + 2.0 * (y2 - y1) / 3.0;
 
-		double cx = (Math.sqrt(3) / 6.0) * (by - ay) + (ax + bx) / 2.0;
-		double cy = (Math.sqrt(3) / 6.0) * (ax - bx) + (ay + by) / 2.0;
+		double dx = bx - ax;
+		double dy = by - ay;
+
+		double cx = ax + dx / 2 + Math.sqrt(3) * dy / 2;
+		double cy = ay + dy / 2 - Math.sqrt(3) * dx / 2;
 
 		curve(n - 1, x1, y1, ax, ay);
 		curve(n - 1, ax, ay, cx, cy);
@@ -42,9 +45,9 @@ public class Koch {
 		double x2 = 0.85, y2 = 0.3767949;
 		double x3 = 0.55, y3 = 0.8964102;
 
-		curve(n, x1, y1, x2, y2); // curve 1
-		curve(n, x2, y2, x3, y3); // curve 2
-		curve(n, x3, y3, x1, y1); // curve 3
+		curve(n, x1, y1, x2, y2);
+		curve(n, x2, y2, x3, y3);
+		curve(n, x3, y3, x1, y1);
 
 		StdDraw.show();
 	}
