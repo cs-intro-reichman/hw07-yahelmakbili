@@ -16,7 +16,7 @@ public class Binomial {
 	public static int binomial1(int n, int k) {
 		if (k > n)
 			return 0;
-		if (k == 0 || n == 0)
+		if (k == 0 || n == 0 || k == n)
 			return 1;
 		return binomial1(n - 1, k) + binomial1(n - 1, k - 1);
 	}
@@ -25,7 +25,7 @@ public class Binomial {
 	public static int binomial(int n, int k) {
 		int[][] memo = new int[n + 1][k + 1];
 		for (int i = 0; i <= n; i++) {
-			for (int j = 0; j <= k; k++) {
+			for (int j = 0; j <= k; j++) {
 				memo[i][j] = -1;
 			}
 		}
